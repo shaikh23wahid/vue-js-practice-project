@@ -1,13 +1,23 @@
 <template>
   <teleport to=".modals-container">
     <div class="modal">
-      <h1>This is a modal</h1>
-      <p>Loren ipsum color dfdf afdfaf afss asfa fa sdbskdbfs</p>
+      <h1>
+        <slot name="title" />
+        <slot name="subTitle" />
+      </h1>
+      <slot />
+      <pre>{{ $slots.title() }}</pre>
       <button>Hide modal</button>
     </div>
   </teleport>
 </template>
 
+<script setup>
+import { useSlots } from "vue";
+const slots = useSlots();
+console.log(slots.title());
+console.log(slots.subTitle());
+</script>
 <style>
 .modal {
   background: beige;

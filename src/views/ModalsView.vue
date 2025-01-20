@@ -2,7 +2,22 @@
   <div class="modals">
     <h1>Modals</h1>
     <button @click="showModal = true">Show modal</button>
-    <Modal v-if="showModal"></Modal>
+    <Modal v-if="showModal">
+      <template v-slot:title
+        >This is modal heading supplied using slot</template
+      >
+      <template #subTitle>subTitle</template>
+      <p>
+        Loren ipsum color dfdf afdfaf afss asfa fa sdbskdbfs<br />
+        is a unique code or identifier that is assigned to each tenant in a
+        multi-tenant system or application. In a multi-tenant architecture, a
+        single instance of the software or service serves multiple clients or
+        tenants, keeping their data and configurations separate to ensure
+        privacy and data isolation. This is required to identify the API calls
+        related to a specific tenant in the logs for monitoring and
+        troubleshooting
+      </p>
+    </Modal>
   </div>
 </template>
 
