@@ -7,7 +7,8 @@
       </h1>
       <slot />
 
-      <button>Hide modal</button>
+      <button @click="$emit('hideModal')">Hide modal 1</button>
+      <button @click="handleButtonClick">Hide modal 2</button>
     </div>
   </teleport>
 </template>
@@ -29,11 +30,26 @@ const props = defineProps({
 });
 
 console.log(props.title, props.subTitle);
+
+/*
+  emits
+*/
+
+const emit = defineEmits(["hideModal"]);
+
+/*
+  handle button click
+*/
+
+const handleButtonClick = () => {
+  emit("hideModal");
+};
 </script>
 
 <!--
 <script>
 export default {
+  emits: ["hideModal"],
   props: {
     title: {
       type: String,

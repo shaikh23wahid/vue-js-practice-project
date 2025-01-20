@@ -4,6 +4,7 @@
     <button @click="showModal = true">Show modal</button>
     <Modal
       v-if="showModal"
+      @hideModal="showModal = false"
       title="My modal title (via props)"
       subTitle="My subTitle (via props)"
     >
