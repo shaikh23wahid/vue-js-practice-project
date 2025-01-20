@@ -2,22 +2,52 @@
   <teleport to=".modals-container">
     <div class="modal">
       <h1>
-        <slot name="title" />
-        <slot name="subTitle" />
+        {{ title }}
+        {{ subTitle }}
       </h1>
       <slot />
-      <pre>{{ $slots.title() }}</pre>
+
       <button>Hide modal</button>
     </div>
   </teleport>
 </template>
 
 <script setup>
-import { useSlots } from "vue";
-const slots = useSlots();
-console.log(slots.title());
-console.log(slots.subTitle());
+/*
+  props
+*/
+
+const props = defineProps({
+  title: {
+    type: String,
+    default: "No title specified",
+  },
+  subTitle: {
+    type: String,
+    default: "No subType specified",
+  },
+});
+
+console.log(props.title, props.subTitle);
 </script>
+
+<!--
+<script>
+export default {
+  props: {
+    title: {
+      type: String,
+      default: "No title specified",
+    },
+    subTitle: {
+      type: String,
+      default: "No subType specified",
+    },
+  },
+};
+</script>
+-->
+
 <style>
 .modal {
   background: beige;

@@ -2,11 +2,11 @@
   <div class="modals">
     <h1>Modals</h1>
     <button @click="showModal = true">Show modal</button>
-    <Modal v-if="showModal">
-      <template v-slot:title
-        >This is modal heading supplied using slot</template
-      >
-      <template #subTitle>subTitle</template>
+    <Modal
+      v-if="showModal"
+      title="My modal title (via props)"
+      subTitle="My subTitle (via props)"
+    >
       <p>
         Loren ipsum color dfdf afdfaf afss asfa fa sdbskdbfs<br />
         is a unique code or identifier that is assigned to each tenant in a
