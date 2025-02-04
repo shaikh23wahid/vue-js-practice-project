@@ -1,4 +1,8 @@
 <template>
+  <div class="user-data">
+    {{ userData.name }} @{{ userData.username }} Online:
+    {{ online }}
+  </div>
   <nav>
     <RouterLink to="/">Home</RouterLink>
     <RouterLink to="/posts">Posts</RouterLink>
@@ -11,6 +15,31 @@
     </keep-alive>
   </router-view>
 </template>
+<script setup>
+/*
+  imports
+*/
+
+import { reactive, provide } from "vue";
+import { useOnline } from "@vueuse/core";
+
+/*
+  user data
+*/
+
+const userData = reactive({
+  name: "Wahid",
+  usename: "wahidshaikh",
+});
+
+provide("userData", userData);
+
+/*
+ online status
+*/
+
+const online = useOnline();
+</script>
 
 <style>
 @import "@/assets/base.css";
